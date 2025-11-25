@@ -51,6 +51,4 @@ jobs:
 
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          # (Optional) If you're using a repository secret named PYPI_API_TOKEN, this action auto-reads it.
-          # token: ${{ secrets.PYPI_API_TOKEN }}
+
