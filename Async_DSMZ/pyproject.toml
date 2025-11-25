@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "async_dsmz"
+version = "2025.0.0"
+dependencies = [
+  "lpsn",
+  "aiohttp",
+  "bacdive",
+  "python-keycloak",
+]
+requires-python = ">=3.12"
+authors = [
+  {name = "Fabian Bastiaanssen", email ="Fbastiaanssen@umail.ucc.ie"}
+]
+maintainers = [
+    {name = "Fabian Bastiaanssen", email ="Fbastiaanssen@umail.ucc.ie"}
+]
+description = "Asyncio wrappers for the DSMZ LPSN and BacDive APIs"
+readme = "README.md"
+license = "GNU"
+license-files = ["LICEN[CS]E.*"]
+keywords = ["DSMZ", "LPSN", "BacDive", "Asyncio", "Microbiology", "Bioinformatics"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python"
+]
+
+
+[project.urls]
+Repository = "https://github.com/Fabian-Bastiaanssen/async_dsmz.git"
+"Bug Tracker" = "https://github.com/Fabian-Bastiaanssen/async_dsmz/issues"
+Changelog = "https://github.com/Fabian-Bastiaanssen/async_dsmz/blob/master/CHANGELOG.md"
