@@ -9,7 +9,7 @@ jobs:
     name: Publish release to PyPI
     runs-on: ubuntu-latest
     environment:
-      name: pypi
+      name: release
       url: https://pypi.org/p/async_dsmz/
     permissions:
       id-token: write
@@ -51,4 +51,5 @@ jobs:
 
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
+
 
