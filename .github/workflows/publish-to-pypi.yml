@@ -25,14 +25,32 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: Show top-level files (debug)
+        run: |
+          echo "Working directory: $(pwd)"
+          ls -la
+
       - name: Install build tooling
         run: |
           python -m pip install --upgrade pip
           pip install build twine setuptools wheel
 
-      - name: Build package (PEP 517 / pyproject.toml compatible)
+      - name: Build package (handles pyproject.toml or setup.py)
         run: |
-          python -m build
+          if [ -f pyproject.toml ]; then
+            echo "Found pyproject.toml — using PEP 517 build"
+            python -m build --sdist --wheel
+          elif [ -f setup.py ]; then
+            echo "Found setup.py — using legacy setup.py build"
+            python setup.py sdist bdist_wheel
+          else
+            echo "Error: no pyproject.toml or setup.py found at repo root"
+            ls -la
+            exit 1
+          fi
 
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          # (Optional) If you're using a repository secret named PYPI_API_TOKEN, this action auto-reads it.
+          # token: ${{ secrets.PYPI_API_TOKEN }}
