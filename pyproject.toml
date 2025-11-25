@@ -20,7 +20,7 @@ maintainers = [
 ]
 description = "Asyncio wrappers for the DSMZ LPSN and BacDive APIs"
 readme = "README.md"
-license = "GNU"
+license = "GPL-3.0-only"
 license-files = ["LICEN[CS]E.*"]
 keywords = ["DSMZ", "LPSN", "BacDive", "Asyncio", "Microbiology", "Bioinformatics"]
 classifiers = [
