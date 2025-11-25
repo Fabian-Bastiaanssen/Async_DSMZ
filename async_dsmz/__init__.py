@@ -1,2 +1,2 @@
-from .async_bacdive import async_bacdive
-from .async_lpsn import asyn_lpsn
+from .async_bacdive import bacdive_async
+from .async_lpsn import lpsn_async
