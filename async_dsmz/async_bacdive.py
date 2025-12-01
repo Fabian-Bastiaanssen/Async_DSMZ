@@ -113,7 +113,6 @@ class bacdive_async(bacdive.BacdiveClient):
                     await self.refresh_tokens()
                     await asyncio.sleep(2 ** attempt)
                     print(f"Retrying {url}, attempt {attempt}")
-                    print(f"Error: {e}")
                 
 
         raise RuntimeError(f"Failed to GET {url} after {self.max_retries} retries {resp.status if 'resp' in locals() else 'No Response'}")
