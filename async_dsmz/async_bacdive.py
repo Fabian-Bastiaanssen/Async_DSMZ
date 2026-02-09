@@ -155,7 +155,7 @@ class bacdive_async(bacdive.BacdiveClient):
             entries = await self.do_api_call_async(f"fetch/{ids}")
             # print(f"Retrieved {len(entries['results'])} entries from {url}")
             # print(f"First entry: {entries['results'].keys()}")
-            return [el for el in entries['results'].values()]
+            return [el for el in entries["results"].values()] if isinstance(entries.get("results"), dict) else []
         except Exception as e:
             print(f"Error parsing entries from {url}: {e}")
             return []
@@ -177,7 +177,7 @@ class bacdive_async(bacdive.BacdiveClient):
             elif num_jobs == 0:
                 ids = ";".join(str(i) for i in result['results'])
                 entries = await self.do_api_call_async(f"fetch/{ids}")
-                return [el for el in entries['results'].values()]
+                return [el for el in entries["results"].values()] if isinstance(entries.get("results"), dict) else []
             urls = [f"{url}?page={i}" for i in range(num_jobs + 1) ]
         else:
             # self.session = session  # temporarily assign for internal methods
