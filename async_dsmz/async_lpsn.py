@@ -210,7 +210,7 @@ class lpsn_async(lpsn.LpsnClient):
     async def retrieve_async(self):
         self.session = await self.get_session()  # temporarily assign for internal methods
         # print(self.url)
-        num_jobs = self.result['count'] // 100
+        num_jobs = max(0, (count - 1) // 100)
         # prepare URLs for all pages
         # if &not=yes is in the URL, we need to keep it at the end
         if num_jobs == 0:
