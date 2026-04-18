@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 packages = ["async_dsmz/"]
 [project]
 name = "async_dsmz"
-version = "1.0.6"
+version = "1.0.7"
 dependencies = [
   "lpsn",
   "aiohttp",
